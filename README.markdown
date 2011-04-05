@@ -1,7 +1,9 @@
 PRKit
 =====
 
-PRKit is some small additions to the fantastic <a href="http://cocos2d-iphone.org">cocos2d for iphone</a> project that we found useful and figured others might like as well.
+PRKit is a library of some small additions to the fantastic <a href="http://cocos2d-iphone.org">cocos2d for iphone</a> project that some people on the cocos2d forums found useful and figured others might like as well.
+
+PRKit was contributed to the open source community by <a href="http://precognitiveresearch.com">Precognitive Research, LLC</a>.
 
 License
 ----------
@@ -21,11 +23,9 @@ Class Overview
 --------------
 ### PRFilledPolygon
 
-PRFilledPolygon will fill a polygon of arbitrary points with a texture; think of it like using the paint bucket tool in Photoshop.  
+PRFilledPolygon will fill a polygon of arbitrary points with a texture; think of it like using the Polygon tool in Photoshop and then filling it in using the paint bucket tool.
 
-The class inherits from CCNode, so it should respond to CCActions as a normal class, but that is currently untested.
-
-Usage:
+The class inherits from CCNode, so it can be added to your hierarchy as any other class and should respond to position changes like any other node. (Please test and let us know!)
 
 >// Set up the polygon points
 >       NSMutableArray *polygonPoints = [NSMutableArray arrayWithCapacity:10];

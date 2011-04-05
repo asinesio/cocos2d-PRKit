@@ -1,6 +1,6 @@
 //
 //  HelloWorldLayer.m
-//  cocos2d-filledPolygon
+//  cocos2d-PRKit
 //
 //  Created by Andy Sinesio on 4/4/11.
 //  Copyright Precognitive Research, LLC 2011. All rights reserved.
@@ -9,6 +9,8 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "PRFilledPolygon.h"
+
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -45,7 +47,22 @@
 		label.position =  ccp( size.width /2 , size.height/2 );
 		
 		// add the label as a child to this Layer
-		[self addChild: label];
+		[self addChild: label z:1];
+        
+        
+        // Set up the polygon points
+        NSMutableArray *polygonPoints = [NSMutableArray arrayWithCapacity:10];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(100,100)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(200,100)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(300,200)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,300)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(500,500)]];
+        
+        CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pattern1.png"];
+        PRFilledPolygon *filledPolygon = [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:texture] autorelease];
+        [self addChild:filledPolygon z:0];
+        
+        
 	}
 	return self;
 }
