@@ -6,29 +6,36 @@
 //  Copyright 2010 Precognitive Research, LLC. All rights reserved.
 //
 
-#import "Surface.h"
+#import "PRFilledPolygon.h"
 #import "triangulate.h"
 
+@interface PRFilledPolygon (privateMethods)
+
+/**
+ Recalculate the texture coordinates. Called when setTexture is called.
+*/
+-(void) calculateTextureCoordinates;
+
+@end
 
 @implementation PRFilledPolygon
 
 @synthesize pointCount;
-@synthesize points;
 
--(id) initWithSurfacePoints: (NSArray *) points andTexture: (CCTexture2D *) texture {
+
+-(id) initWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture {
 
 	if( (self=[super init])) {
 		
-		pointCount = [points count];
+		pointCount = [polygonPoints count];
 		 
-		surfacePoints = (CGPoint *) malloc(sizeof(CGPoint) * pointCount);
-		
+		points = (CGPoint *) malloc(sizeof(CGPoint) * pointCount);
 		
 		int i = 0;
 		Vector2dVector *inputPointsForTriangulation = new Vector2dVector;
-		for (NSValue *value in points) {
-			surfacePoints[i] = [value CGPointValue];
-			inputPointsForTriangulation->push_back( Vector2d(surfacePoints[i].x,surfacePoints[i].y));
+		for (NSValue *value in polygonPoints) {
+			points[i] = [value CGPointValue];
+			inputPointsForTriangulation->push_back( Vector2d(points[i].x,points[i].y));
 			i++;
 		}
 		// Triangulate results
@@ -45,7 +52,7 @@
 			areaTrianglePoints[j] = ccp(triangulatedPoints[j].GetX(), triangulatedPoints[j].GetY());
 		}
 		
-		self.texture = [[CCTextureCache sharedTextureCache] addImage:@"rock.png"];
+		self.texture = fillTexture;
 		 
 	}
 	
@@ -96,7 +103,7 @@
 	return blendFunc;
 }
 
--(void) setTexture:(CCTexture2D*)texture2D {
+-(void) setTexture:(CCTexture2D *) texture2D {
 	
 	// accept texture==nil as argument
 	NSAssert( !texture || [texture isKindOfClass:[CCTexture2D class]], @"setTexture expects a CCTexture2D. Invalid argument");
@@ -110,29 +117,19 @@
 	[self calculateTextureCoordinates];
 }
 
--(CCTexture2D*) texture {
+-(CCTexture2D *) texture {
 	return texture;
 }
 		 
--(CGPoint *) surfacePoints {
-	return surfacePoints;
+-(CGPoint *) points {
+	return points;
 }
-
-
-//generated block
-
-- (void) generatedDeallocForSurface
-{
-	
-}
-//end generated block
 
 -(void) dealloc {
-	free(surfacePoints);
-	//free(areaTrianglePoints);
-	//free(textureCoordinates);
-	[self generatedDeallocForSurface];
-	//[texture release];
+	free(points);
+	free(areaTrianglePoints);
+	free(textureCoordinates);
+	[texture release]; texture = nil;
 	[super dealloc];
 }
 

@@ -122,12 +122,13 @@
 		C3339D47134AC7B20074163A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D46134AC7B20074163A /* AppDelegate.m */; };
 		C3339D4A134AC7B20074163A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D49134AC7B20074163A /* RootViewController.m */; };
 		C3339D4D134AC7B20074163A /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D4C134AC7B20074163A /* HelloWorldLayer.m */; };
-		C3339D5E134AC8450074163A /* PRFilledPolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3339D5D134AC8450074163A /* PRFilledPolygon.mm */; };
-		C3339D62134ACA050074163A /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D60134ACA050074163A /* triangulate.cpp */; };
+		C3339D6B134AD2F40074163A /* PRFilledPolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3339D68134AD2F40074163A /* PRFilledPolygon.mm */; };
+		C3339D6C134AD2F40074163A /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D69134AD2F40074163A /* triangulate.cpp */; };
+		C3339D6E134AD3310074163A /* pattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3339D6D134AD3310074163A /* pattern1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C3339BE6134AC7B00074163A /* cocos2d-filledPolygon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cocos2d-filledPolygon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3339BE6134AC7B00074163A /* cocos2D-PRKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cocos2D-PRKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3339BEA134AC7B00074163A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3339BEC134AC7B00074163A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C3339BEE134AC7B00074163A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -362,10 +363,12 @@
 		C3339D4B134AC7B20074163A /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		C3339D4C134AC7B20074163A /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		C3339D4E134AC7B20074163A /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		C3339D5C134AC8450074163A /* PRFilledPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PRFilledPolygon.h; sourceTree = "<group>"; };
-		C3339D5D134AC8450074163A /* PRFilledPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRFilledPolygon.mm; sourceTree = "<group>"; };
-		C3339D60134ACA050074163A /* triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulate.cpp; sourceTree = "<group>"; };
-		C3339D61134ACA050074163A /* triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangulate.h; sourceTree = "<group>"; };
+		C3339D67134AD2F40074163A /* PRFilledPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRFilledPolygon.h; sourceTree = "<group>"; };
+		C3339D68134AD2F40074163A /* PRFilledPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRFilledPolygon.mm; sourceTree = "<group>"; };
+		C3339D69134AD2F40074163A /* triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulate.cpp; sourceTree = "<group>"; };
+		C3339D6A134AD2F40074163A /* triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangulate.h; sourceTree = "<group>"; };
+		C3339D6D134AD3310074163A /* pattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pattern1.png; path = Resources/pattern1.png; sourceTree = "<group>"; };
+		C3339D6F134AD4530074163A /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,7 +393,9 @@
 		C3339BDB134AC7B00074163A = {
 			isa = PBXGroup;
 			children = (
-				C3339BFA134AC7B00074163A /* cocos2d-filledPolygon */,
+				C3339D6F134AD4530074163A /* README.markdown */,
+				C3339D66134AD2F40074163A /* PRKit */,
+				C3339BFA134AC7B00074163A /* cocos2d-example */,
 				C3339BE9134AC7B00074163A /* Frameworks */,
 				C3339BE7134AC7B00074163A /* Products */,
 			);
@@ -399,7 +404,7 @@
 		C3339BE7134AC7B00074163A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C3339BE6134AC7B00074163A /* cocos2d-filledPolygon.app */,
+				C3339BE6134AC7B00074163A /* cocos2D-PRKit-Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,13 +424,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C3339BFA134AC7B00074163A /* cocos2d-filledPolygon */ = {
+		C3339BFA134AC7B00074163A /* cocos2d-example */ = {
 			isa = PBXGroup;
 			children = (
-				C3339D61134ACA050074163A /* triangulate.h */,
-				C3339D60134ACA050074163A /* triangulate.cpp */,
-				C3339D5C134AC8450074163A /* PRFilledPolygon.h */,
-				C3339D5D134AC8450074163A /* PRFilledPolygon.mm */,
 				C3339D00134AC7B20074163A /* LICENSE_cocos2d.txt */,
 				C3339D0F134AC7B20074163A /* LICENSE_CocosDenshion.txt */,
 				C3339D1A134AC7B20074163A /* LICENSE_TouchJSON.txt */,
@@ -445,12 +446,14 @@
 				C3339D2F134AC7B20074163A /* FontLabel */,
 				C3339D41134AC7B20074163A /* Supporting Files */,
 			);
+			name = "cocos2d-example";
 			path = "cocos2d-filledPolygon";
 			sourceTree = "<group>";
 		};
 		C3339BFB134AC7B00074163A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3339D6D134AD3310074163A /* pattern1.png */,
 				C3339BFC134AC7B00074163A /* Default.png */,
 				C3339BFE134AC7B00074163A /* fps_images.png */,
 				C3339C00134AC7B00074163A /* Icon-72.png */,
@@ -712,12 +715,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C3339D66134AD2F40074163A /* PRKit */ = {
+			isa = PBXGroup;
+			children = (
+				C3339D67134AD2F40074163A /* PRFilledPolygon.h */,
+				C3339D68134AD2F40074163A /* PRFilledPolygon.mm */,
+				C3339D69134AD2F40074163A /* triangulate.cpp */,
+				C3339D6A134AD2F40074163A /* triangulate.h */,
+			);
+			path = PRKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C3339BE5134AC7B00074163A /* cocos2d-filledPolygon */ = {
+		C3339BE5134AC7B00074163A /* cocos2D-PRKit-Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3339D51134AC7B20074163A /* Build configuration list for PBXNativeTarget "cocos2d-filledPolygon" */;
+			buildConfigurationList = C3339D51134AC7B20074163A /* Build configuration list for PBXNativeTarget "cocos2D-PRKit-Example" */;
 			buildPhases = (
 				C3339BE2134AC7B00074163A /* Sources */,
 				C3339BE3134AC7B00074163A /* Frameworks */,
@@ -727,9 +741,9 @@
 			);
 			dependencies = (
 			);
-			name = "cocos2d-filledPolygon";
+			name = "cocos2D-PRKit-Example";
 			productName = "cocos2d-filledPolygon";
-			productReference = C3339BE6134AC7B00074163A /* cocos2d-filledPolygon.app */;
+			productReference = C3339BE6134AC7B00074163A /* cocos2D-PRKit-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -740,7 +754,7 @@
 			attributes = {
 				ORGANIZATIONNAME = "Precognitive Research, LLC";
 			};
-			buildConfigurationList = C3339BE0134AC7B00074163A /* Build configuration list for PBXProject "cocos2d-filledPolygon" */;
+			buildConfigurationList = C3339BE0134AC7B00074163A /* Build configuration list for PBXProject "cocos2D-PRKit-Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -752,7 +766,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C3339BE5134AC7B00074163A /* cocos2d-filledPolygon */,
+				C3339BE5134AC7B00074163A /* cocos2D-PRKit-Example */,
 			);
 		};
 /* End PBXProject section */
@@ -771,6 +785,7 @@
 				C3339C09134AC7B00074163A /* Icon.png in Resources */,
 				C3339C0B134AC7B00074163A /* Icon@2x.png in Resources */,
 				C3339C0E134AC7B00074163A /* iTunesArtwork in Resources */,
+				C3339D6E134AD3310074163A /* pattern1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,8 +894,8 @@
 				C3339D47134AC7B20074163A /* AppDelegate.m in Sources */,
 				C3339D4A134AC7B20074163A /* RootViewController.m in Sources */,
 				C3339D4D134AC7B20074163A /* HelloWorldLayer.m in Sources */,
-				C3339D5E134AC8450074163A /* PRFilledPolygon.mm in Sources */,
-				C3339D62134ACA050074163A /* triangulate.cpp in Sources */,
+				C3339D6B134AD2F40074163A /* PRFilledPolygon.mm in Sources */,
+				C3339D6C134AD2F40074163A /* triangulate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,7 +949,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "cocos2d-filledPolygon/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "cocos2D-PRKit-Example";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -949,7 +964,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "cocos2d-filledPolygon/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "cocos2D-PRKit-Example";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -958,7 +973,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C3339BE0134AC7B00074163A /* Build configuration list for PBXProject "cocos2d-filledPolygon" */ = {
+		C3339BE0134AC7B00074163A /* Build configuration list for PBXProject "cocos2D-PRKit-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C3339D4F134AC7B20074163A /* Debug */,
@@ -967,7 +982,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3339D51134AC7B20074163A /* Build configuration list for PBXNativeTarget "cocos2d-filledPolygon" */ = {
+		C3339D51134AC7B20074163A /* Build configuration list for PBXNativeTarget "cocos2D-PRKit-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C3339D52134AC7B20074163A /* Debug */,

@@ -15,8 +15,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C3339BE5134AC7B00074163A"
                BuildableName = "cocos2d-filledPolygon.app"
-               BlueprintName = "cocos2d-filledPolygon"
-               ReferencedContainer = "container:cocos2d-filledPolygon.xcodeproj">
+               BlueprintName = "cocos2D-PRKit-Example"
+               ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,8 +42,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C3339BE5134AC7B00074163A"
             BuildableName = "cocos2d-filledPolygon.app"
-            BlueprintName = "cocos2d-filledPolygon"
-            ReferencedContainer = "container:cocos2d-filledPolygon.xcodeproj">
+            BlueprintName = "cocos2D-PRKit-Example"
+            ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -61,8 +61,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C3339BE5134AC7B00074163A"
             BuildableName = "cocos2d-filledPolygon.app"
-            BlueprintName = "cocos2d-filledPolygon"
-            ReferencedContainer = "container:cocos2d-filledPolygon.xcodeproj">
+            BlueprintName = "cocos2D-PRKit-Example"
+            ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
