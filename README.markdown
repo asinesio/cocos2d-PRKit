@@ -43,6 +43,7 @@ The class inherits from CCNode, so it can be added to your hierarchy as any othe
 >       [self addChild:filledPolygon z:0];
 
 You can also change the points on the fly by calling setPoints:
+
 >//Change the points in your update: method like this
 >- (void) update: (ccTime) dt {
 >    if (CCRANDOM_0_1() > 0.95f) {
