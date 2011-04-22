@@ -30,44 +30,38 @@ PRFilledPolygon will fill a polygon of arbitrary points with a texture; think of
 
 The class inherits from CCNode, so it can be added to your hierarchy as any other class and should respond to position changes like any other node. (Please test and let us know!)
 
->// Set up the polygon points
->       NSMutableArray *polygonPoints = [NSMutableArray arrayWithCapacity:10];
->       [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(100,100)]];
->       [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(200,100)]];
->       [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(300,200)]];
->       [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,300)]];
->       [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(500,500)]];
->       
->       CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pattern1.png"];
->       PRFilledPolygon *filledPolygon = [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:texture] autorelease];
->       [self addChild:filledPolygon z:0];
+    NSMutableArray *polygonPoints = [NSMutableArray arrayWithCapacity:10];
+    [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(100,100)]];
+    [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(200,100)]];
+    [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(300,200)]];
+    [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,300)]];
+    [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(500,500)]]; 
+    
+    CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pattern1.png"];
+    PRFilledPolygon *filledPolygon = [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:texture] autorelease];
+    [self addChild:filledPolygon z:0];
 
 You can also change the points on the fly by calling setPoints:
 
->//Change the points in your update: method like this
->- (void) update: (ccTime) dt {
->    if (CCRANDOM_0_1() > 0.95f) {
->        float newY = 75.0f * CCRANDOM_0_1();       
->        NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithCGPoint:ccp(0,0)], 
->                           [NSValue valueWithCGPoint:ccp(0,75)],
->                           [NSValue valueWithCGPoint:ccp(75,newY + 75)],
->                           [NSValue valueWithCGPoint:ccp(75,0)],
->                           nil];
->        id box = [self getChildByTag:kTagBox];
->        [box setPoints:points];
->    }   
->}
+    float newY = 75.0f * CCRANDOM_0_1();       
+    NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithCGPoint:ccp(0,0)], 
+        [NSValue valueWithCGPoint:ccp(0,75)],
+        [NSValue valueWithCGPoint:ccp(75,newY + 75)],
+        [NSValue valueWithCGPoint:ccp(75,0)],
+        nil];
+    id box = [self getChildByTag:kTagBox];
+    [box setPoints:points];
 
-The class also supports pluggable Triangulators.  Just set the triangulator object with something that implements the PRTriangulator protocol.
+The class also supports pluggable <i>PRTriangulator</i> implementations. Just set the triangulator object with something that implements the <i>PRTriangulator</i> protocol.
 
 ### PRTriangulator
 
 This is a protocol for pluggable triangulators.  The Ratcliff implementation is the only one that ships with PRKit right now, but should you want to write your own, go right ahead -- you only have to implement one method:
 
->- (NSArray *) triangulateVertices:(NSArray *)vertices;
+    - (NSArray *) triangulateVertices:(NSArray *)vertices;
 
 There is a <a href="http://www.vterrain.org/Implementation/Libs/triangulate.html">great reference on vterrian.org</a> with links to many different triangulation algorithms.
 
 ### PRRatcliffTriangulator
 
-This implements the <i>PRTriangulator</i> and is the default triangulator supplied for PRKit.  It uses Ratcliff's triangulator from flipcode (shipped with the code as <i>triangulator.h</i> and <i>triangulator.cpp</i>) 
+This implements the <i>PRTriangulator</i> and is the default triangulator supplied for PRKit.  It uses Ratcliff's triangulator from flipcode (shipped with the code as <i>triangulator.h</i> and <i>triangulator.cpp</i>).
