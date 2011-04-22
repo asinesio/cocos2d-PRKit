@@ -65,6 +65,8 @@ This is a protocol for pluggable triangulators.  The Ratcliff implementation is 
 
 >- (NSArray *) triangulateVertices:(NSArray *)vertices;
 
+There is a <a href="http://www.vterrain.org/Implementation/Libs/triangulate.html">great reference on vterrian.org</a> with links to many different triangulation algorithms.
+
 ### PRRatcliffTriangulator
 
 This implements the <i>PRTriangulator</i> and is the default triangulator supplied for PRKit.  It uses Ratcliff's triangulator from flipcode (shipped with the code as <i>triangulator.h</i> and <i>triangulator.cpp</i>) 
