@@ -31,28 +31,46 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "PRTriangulator.h"
 
 @interface PRFilledPolygon : CCNode {
 @private
-	int pointCount;
 	int areaTrianglePointCount;
 
 	CCTexture2D *texture;
 	ccBlendFunc blendFunc;
 	
-	CGPoint *points;
 	CGPoint *areaTrianglePoints;
 	CGPoint *textureCoordinates;
+    
+    id<PRTriangulator> triangulator;
 }
 
-@property (nonatomic, readonly) CGPoint *points;
-@property (nonatomic, readonly) int pointCount;
 @property (nonatomic, retain) CCTexture2D *texture;
+@property (nonatomic, retain) id<PRTriangulator> triangulator;
 
 /**
- Initialize the polygon.  polygonPoints is an NSArray full of NSValues that are the vertexes of the polygon.  The texture will be repeated. 
+ Returns an autoreleased polygon.  Default triangulator is used (Ratcliff's).
+*/
++(id) filledPolygonWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture;
+
+/**
+ Returns an autoreleased filled poly with a supplied triangulator.
+ */
++(id) filledPolygonWithPoints:(NSArray *)polygonPoints andTexture:(CCTexture2D *)fillTexture usingTriangulator: (id<PRTriangulator>) polygonTriangulator;
+
+/**
+ Initialize the polygon.  polygonPoints will be triangulated.  Default triangulator is used (Ratcliff).
 */
 -(id) initWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture;
+
+/**
+ Initialize the polygon.  polygonPoints will be triangulated using the supplied triangulator.
+*/
+-(id) initWithPoints:(NSArray *)polygonPoints andTexture:(CCTexture2D *)fillTexture usingTriangulator: (id<PRTriangulator>) polygonTriangulator;
+
+-(void) setPoints: (NSArray *) points;
+
 
 
 @end

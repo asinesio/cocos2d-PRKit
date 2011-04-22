@@ -11,6 +11,8 @@
 #import "HelloWorldLayer.h"
 #import "PRFilledPolygon.h"
 
+#define kTagPoly 10
+#define kTagBox 20
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -39,10 +41,10 @@
 		
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
+        
 		// ask director the the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
-	
+        
 		// position the label on the center of the screen
 		label.position =  ccp( size.width /2 , size.height/2 );
 		
@@ -53,18 +55,47 @@
         // Set up the polygon points
         NSMutableArray *polygonPoints = [NSMutableArray arrayWithCapacity:10];
         [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(100,100)]];
-        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(200,100)]];
-        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(300,200)]];
-        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,300)]];
-        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(500,500)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(100,200)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(150,110)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,200)]];
+        [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,100)]];
         
         CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pattern1.png"];
         PRFilledPolygon *filledPolygon = [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:texture] autorelease];
-        [self addChild:filledPolygon z:0];
         
         
+        [self addChild:filledPolygon z:0 tag:kTagPoly];
+        
+        
+        PRFilledPolygon *box = [[[PRFilledPolygon alloc] initWithPoints:[NSArray arrayWithObjects:
+                                                                         [NSValue valueWithCGPoint:ccp(0,0)], 
+                                                                         [NSValue valueWithCGPoint:ccp(0,75)],
+                                                                         [NSValue valueWithCGPoint:ccp(75,75)],
+                                                                         [NSValue valueWithCGPoint:ccp(75,0)],
+                                                                         nil]
+                                                             andTexture:texture] autorelease];
+        [self addChild:box z:0 tag:kTagBox];
+        
+        [self scheduleUpdate];
 	}
 	return self;
+}
+
+- (void) update: (ccTime) dt {
+    // change the polys
+    if (CCRANDOM_0_1() > 0.95f) {
+        float newY = 75.0f * CCRANDOM_0_1();
+        CCLOG(@"New Y value: %2.0f", newY);
+        
+        NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithCGPoint:ccp(0,0)], 
+                           [NSValue valueWithCGPoint:ccp(0,75)],
+                           [NSValue valueWithCGPoint:ccp(75,newY + 75)],
+                           [NSValue valueWithCGPoint:ccp(75,0)],
+                           nil];
+        id box = [self getChildByTag:kTagBox];
+        [box setPoints:points];
+    }
+    
 }
 
 // on "dealloc" you need to release all your retained objects

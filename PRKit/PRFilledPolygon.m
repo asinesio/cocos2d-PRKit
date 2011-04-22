@@ -7,7 +7,7 @@
 //
 
 #import "PRFilledPolygon.h"
-#import "triangulate.h"
+#import "PRRatcliffTriangulator.h"
 
 @interface PRFilledPolygon (privateMethods)
 
@@ -20,43 +20,58 @@
 
 @implementation PRFilledPolygon
 
-@synthesize pointCount;
+@synthesize triangulator;
 
+
+/**
+ Returns an autoreleased polygon.  Default triangulator is used (Ratcliff's).
+ */
++(id) filledPolygonWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture {
+    return [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:fillTexture] autorelease];
+}
+
+/**
+ Returns an autoreleased filled poly with a supplied triangulator.
+ */
++(id) filledPolygonWithPoints:(NSArray *)polygonPoints andTexture:(CCTexture2D *)fillTexture usingTriangulator: (id<PRTriangulator>) polygonTriangulator {
+    return [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:fillTexture usingTriangulator:polygonTriangulator] autorelease];
+}
 
 -(id) initWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture {
+    return [self initWithPoints:polygonPoints andTexture:fillTexture usingTriangulator:[[[PRRatcliffTriangulator alloc] init] autorelease]];
+}
 
-	if( (self=[super init])) {
+-(id) initWithPoints:(NSArray *)polygonPoints andTexture:(CCTexture2D *)fillTexture usingTriangulator: (id<PRTriangulator>) polygonTriangulator {
+    if( (self=[super init])) {
 		
-		pointCount = [polygonPoints count];
-		 
-		points = (CGPoint *) malloc(sizeof(CGPoint) * pointCount);
-		
-		int i = 0;
-		Vector2dVector *inputPointsForTriangulation = new Vector2dVector;
-		for (NSValue *value in polygonPoints) {
-			points[i] = [value CGPointValue];
-			inputPointsForTriangulation->push_back( Vector2d(points[i].x,points[i].y));
-			i++;
-		}
-		// Triangulate results
-		Vector2dVector triangulatedPoints;
-		CCLOG(@"Triangulating polygon...");
-		Triangulate::Process(*inputPointsForTriangulation, triangulatedPoints);
-		delete inputPointsForTriangulation;
-		
-		areaTrianglePointCount = triangulatedPoints.size();
-		areaTrianglePoints = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
-		textureCoordinates = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
-		
-		for (int j = 0; j < areaTrianglePointCount; j++) {
-			areaTrianglePoints[j] = ccp(triangulatedPoints[j].GetX(), triangulatedPoints[j].GetY());
-		}
-		
+        self.triangulator = polygonTriangulator;
+        
+        [self setPoints:polygonPoints];
 		self.texture = fillTexture;
-		 
+        
 	}
 	
 	return self;
+}
+
+-(void) setPoints: (NSArray *) points {
+    if (areaTrianglePoints)
+        free(areaTrianglePoints);
+    if (textureCoordinates)
+        free(textureCoordinates);
+    
+    NSArray *triangulatedPoints = [triangulator triangulateVertices:points];
+    
+    areaTrianglePointCount = [triangulatedPoints count];
+    areaTrianglePoints = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
+    textureCoordinates = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
+    
+    for (int i = 0; i < areaTrianglePointCount; i++) {
+        areaTrianglePoints[i] = [[triangulatedPoints objectAtIndex:i] CGPointValue];
+    }
+    
+    [self calculateTextureCoordinates];
+
 }
 
 -(void) calculateTextureCoordinates {
@@ -121,16 +136,13 @@
 	return texture;
 }
 		 
--(CGPoint *) points {
-	return points;
-}
-
 -(void) dealloc {
-	free(points);
+    [super dealloc];
 	free(areaTrianglePoints);
 	free(textureCoordinates);
 	[texture release]; texture = nil;
-	[super dealloc];
+    [triangulator release]; triangulator = nil;
+
 }
 
 @end

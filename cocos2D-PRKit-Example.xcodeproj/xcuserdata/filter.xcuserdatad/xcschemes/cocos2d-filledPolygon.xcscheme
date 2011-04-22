@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C3339BE5134AC7B00074163A"
-               BuildableName = "cocos2d-filledPolygon.app"
+               BuildableName = "cocos2D-PRKit-Example.app"
                BlueprintName = "cocos2D-PRKit-Example"
                ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
             </BuildableReference>
@@ -41,7 +41,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C3339BE5134AC7B00074163A"
-            BuildableName = "cocos2d-filledPolygon.app"
+            BuildableName = "cocos2D-PRKit-Example.app"
             BlueprintName = "cocos2D-PRKit-Example"
             ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
          </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C3339BE5134AC7B00074163A"
-            BuildableName = "cocos2d-filledPolygon.app"
+            BuildableName = "cocos2D-PRKit-Example.app"
             BlueprintName = "cocos2D-PRKit-Example"
             ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
          </BuildableReference>

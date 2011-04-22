@@ -122,9 +122,10 @@
 		C3339D47134AC7B20074163A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D46134AC7B20074163A /* AppDelegate.m */; };
 		C3339D4A134AC7B20074163A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D49134AC7B20074163A /* RootViewController.m */; };
 		C3339D4D134AC7B20074163A /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D4C134AC7B20074163A /* HelloWorldLayer.m */; };
-		C3339D6B134AD2F40074163A /* PRFilledPolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3339D68134AD2F40074163A /* PRFilledPolygon.mm */; };
+		C3339D6B134AD2F40074163A /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D68134AD2F40074163A /* PRFilledPolygon.m */; };
 		C3339D6C134AD2F40074163A /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D69134AD2F40074163A /* triangulate.cpp */; };
 		C3339D6E134AD3310074163A /* pattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3339D6D134AD3310074163A /* pattern1.png */; };
+		C3FCEE6D136120CD00559B90 /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -364,11 +365,14 @@
 		C3339D4C134AC7B20074163A /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		C3339D4E134AC7B20074163A /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		C3339D67134AD2F40074163A /* PRFilledPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRFilledPolygon.h; sourceTree = "<group>"; };
-		C3339D68134AD2F40074163A /* PRFilledPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRFilledPolygon.mm; sourceTree = "<group>"; };
+		C3339D68134AD2F40074163A /* PRFilledPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRFilledPolygon.m; sourceTree = "<group>"; };
 		C3339D69134AD2F40074163A /* triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulate.cpp; sourceTree = "<group>"; };
 		C3339D6A134AD2F40074163A /* triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangulate.h; sourceTree = "<group>"; };
 		C3339D6D134AD3310074163A /* pattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pattern1.png; path = Resources/pattern1.png; sourceTree = "<group>"; };
 		C3339D6F134AD4530074163A /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		C3FCEE691361202700559B90 /* PRTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTriangulator.h; sourceTree = "<group>"; };
+		C3FCEE6B136120CC00559B90 /* PRRatcliffTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRatcliffTriangulator.h; sourceTree = "<group>"; };
+		C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRRatcliffTriangulator.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -719,7 +723,10 @@
 			isa = PBXGroup;
 			children = (
 				C3339D67134AD2F40074163A /* PRFilledPolygon.h */,
-				C3339D68134AD2F40074163A /* PRFilledPolygon.mm */,
+				C3339D68134AD2F40074163A /* PRFilledPolygon.m */,
+				C3FCEE691361202700559B90 /* PRTriangulator.h */,
+				C3FCEE6B136120CC00559B90 /* PRRatcliffTriangulator.h */,
+				C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */,
 				C3339D69134AD2F40074163A /* triangulate.cpp */,
 				C3339D6A134AD2F40074163A /* triangulate.h */,
 			);
@@ -894,8 +901,9 @@
 				C3339D47134AC7B20074163A /* AppDelegate.m in Sources */,
 				C3339D4A134AC7B20074163A /* RootViewController.m in Sources */,
 				C3339D4D134AC7B20074163A /* HelloWorldLayer.m in Sources */,
-				C3339D6B134AD2F40074163A /* PRFilledPolygon.mm in Sources */,
+				C3339D6B134AD2F40074163A /* PRFilledPolygon.m in Sources */,
 				C3339D6C134AD2F40074163A /* triangulate.cpp in Sources */,
+				C3FCEE6D136120CD00559B90 /* PRRatcliffTriangulator.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
