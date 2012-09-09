@@ -50,18 +50,18 @@
  Returns an autoreleased polygon.  Default triangulator is used (Ratcliff's).
  */
 +(id) filledPolygonWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture {
-    return [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:fillTexture] autorelease];
+    return [[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:fillTexture];
 }
 
 /**
  Returns an autoreleased filled poly with a supplied triangulator.
  */
 +(id) filledPolygonWithPoints:(NSArray *)polygonPoints andTexture:(CCTexture2D *)fillTexture usingTriangulator: (id<PRTriangulator>) polygonTriangulator {
-    return [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:fillTexture usingTriangulator:polygonTriangulator] autorelease];
+    return [[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:fillTexture usingTriangulator:polygonTriangulator];
 }
 
 -(id) initWithPoints: (NSArray *) polygonPoints andTexture: (CCTexture2D *) fillTexture {
-    return [self initWithPoints:polygonPoints andTexture:fillTexture usingTriangulator:[[[PRRatcliffTriangulator alloc] init] autorelease]];
+    return [self initWithPoints:polygonPoints andTexture:fillTexture usingTriangulator:[[PRRatcliffTriangulator alloc] init]];
 }
 
 -(id) initWithPoints:(NSArray *)polygonPoints andTexture:(CCTexture2D *)fillTexture usingTriangulator: (id<PRTriangulator>) polygonTriangulator {
@@ -71,6 +71,8 @@
         
         [self setPoints:polygonPoints];
 		self.texture = fillTexture;
+        
+        prog = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTexture];;
         
 	}
 	
@@ -104,20 +106,20 @@
 }
 
 -(void) draw {
-	// we have a pointer to vertex points so enable client state
-	glBindTexture(GL_TEXTURE_2D, self.texture.name);
-	
-	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-	
-	glVertexPointer(2, GL_FLOAT, 0, areaTrianglePoints);
-	glTexCoordPointer(2, GL_FLOAT, 0, textureCoordinates);
-	
-	glDrawArrays(GL_TRIANGLES, 0, areaTrianglePointCount);
-	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-	
-	//Restore texture matrix and switch back to modelview matrix
-	glEnableClientState(GL_COLOR_ARRAY);
-	
+    ccGLBindTexture2D( [self.texture name] );
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position | kCCVertexAttribFlag_TexCoords );
+    
+    [prog use];
+    [prog setUniformForModelViewProjectionMatrix];
+    
+    glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, sizeof(CGPoint), areaTrianglePoints);
+    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, sizeof(CGPoint), textureCoordinates);
+    
+    glDrawArrays(GL_TRIANGLES, 0, areaTrianglePointCount);
 }
 
 -(void) updateBlendFunc {
@@ -146,8 +148,7 @@
 	// accept texture==nil as argument
 	NSAssert( !texture || [texture isKindOfClass:[CCTexture2D class]], @"setTexture expects a CCTexture2D. Invalid argument");
 	
-	[texture release];
-	texture = [texture2D retain];
+	texture = texture2D;
 	ccTexParams texParams = { GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT };
 	[texture setTexParameters: &texParams];
 	
@@ -160,11 +161,10 @@
 }
 		 
 -(void) dealloc {
-    [super dealloc];
 	free(areaTrianglePoints);
 	free(textureCoordinates);
-	[texture release]; texture = nil;
-    [triangulator release]; triangulator = nil;
+	 texture = nil;
+    triangulator = nil;
 
 }
 

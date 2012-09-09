@@ -61,19 +61,19 @@
         [polygonPoints addObject:[NSValue valueWithCGPoint:ccp(400,100)]];
         
         CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pattern1.png"];
-        PRFilledPolygon *filledPolygon = [[[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:texture] autorelease];
+        PRFilledPolygon *filledPolygon = [[PRFilledPolygon alloc] initWithPoints:polygonPoints andTexture:texture];
         
         
         [self addChild:filledPolygon z:0 tag:kTagPoly];
         
         
-        PRFilledPolygon *box = [[[PRFilledPolygon alloc] initWithPoints:[NSArray arrayWithObjects:
+        PRFilledPolygon *box = [[PRFilledPolygon alloc] initWithPoints:[NSArray arrayWithObjects:
                                                                          [NSValue valueWithCGPoint:ccp(0,0)], 
                                                                          [NSValue valueWithCGPoint:ccp(0,75)],
                                                                          [NSValue valueWithCGPoint:ccp(75,75)],
                                                                          [NSValue valueWithCGPoint:ccp(75,0)],
                                                                          nil]
-                                                             andTexture:texture] autorelease];
+                                                             andTexture:texture];
         [self addChild:box z:0 tag:kTagBox];
         
         [self scheduleUpdate];
@@ -99,13 +99,4 @@
 }
 
 // on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
-	[super dealloc];
-}
 @end
