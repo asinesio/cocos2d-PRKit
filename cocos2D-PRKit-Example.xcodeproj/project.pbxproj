@@ -94,14 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				E68CC16E15FCF79B00AF1D44 /* Resources */,
-				E68CC16115FCF78E00AF1D44 /* AppDelegate.h */,
-				E68CC16215FCF78E00AF1D44 /* AppDelegate.m */,
-				E68CC16315FCF78E00AF1D44 /* GameConfig.h */,
-				E68CC16415FCF78E00AF1D44 /* HelloWorldLayer.h */,
-				E68CC16515FCF78E00AF1D44 /* HelloWorldLayer.m */,
-				E68CC16615FCF78E00AF1D44 /* Prefix.pch */,
-				E68CC16915FCF78E00AF1D44 /* main.m */,
-				C3339D6F134AD4530074163A /* README.markdown */,
+				E6482D4C15FD05C400277F6B /* PRKit-example */,
 				C3339D66134AD2F40074163A /* PRKit */,
 				C3339BE9134AC7B00074163A /* Frameworks */,
 				C3339BE7134AC7B00074163A /* Products */,
@@ -143,6 +136,21 @@
 				C3339D6A134AD2F40074163A /* triangulate.h */,
 			);
 			path = PRKit;
+			sourceTree = "<group>";
+		};
+		E6482D4C15FD05C400277F6B /* PRKit-example */ = {
+			isa = PBXGroup;
+			children = (
+				E68CC16115FCF78E00AF1D44 /* AppDelegate.h */,
+				E68CC16215FCF78E00AF1D44 /* AppDelegate.m */,
+				E68CC16315FCF78E00AF1D44 /* GameConfig.h */,
+				E68CC16415FCF78E00AF1D44 /* HelloWorldLayer.h */,
+				E68CC16515FCF78E00AF1D44 /* HelloWorldLayer.m */,
+				E68CC16615FCF78E00AF1D44 /* Prefix.pch */,
+				E68CC16915FCF78E00AF1D44 /* main.m */,
+				C3339D6F134AD4530074163A /* README.markdown */,
+			);
+			name = "PRKit-example";
 			sourceTree = "<group>";
 		};
 		E68CC16E15FCF79B00AF1D44 /* Resources */ = {
