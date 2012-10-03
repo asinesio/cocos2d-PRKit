@@ -93,7 +93,7 @@
                            [NSValue valueWithCGPoint:ccp(75,0)],
                            nil];
         id box = [self getChildByTag:kTagBox];
-        [box setPoints:points];
+        [box setPoints:(CCPointArray*)points];
     }
     
 }

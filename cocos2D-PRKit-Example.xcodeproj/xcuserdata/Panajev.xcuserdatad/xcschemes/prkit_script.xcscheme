@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E632787C161C6C74002B2DCD"
-               BuildableName = "libprkit_script.a"
+               BuildableName = "libPRKit_script.a"
                BlueprintName = "PRKit_script"
                ReferencedContainer = "container:cocos2D-PRKit-Example.xcodeproj">
             </BuildableReference>
