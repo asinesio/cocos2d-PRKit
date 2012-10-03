@@ -72,7 +72,7 @@
         [self setPoints:polygonPoints];
 		self.texture = fillTexture;
         
-        prog = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTexture];;
+        prog = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTexture];
         
 	}
 	
@@ -100,9 +100,10 @@
 }
 
 -(void) calculateTextureCoordinates {
-	for (int j = 0; j < areaTrianglePointCount; j++) {
-		textureCoordinates[j] = ccpMult(areaTrianglePoints[j], 1.0f/texture.pixelsWide);
-	}
+    for (int j = 0; j < areaTrianglePointCount; j++) {
+        textureCoordinates[j] = ccpMult(areaTrianglePoints[j],1.0f/texture.pixelsWide*CC_CONTENT_SCALE_FACTOR());
+        textureCoordinates[j].y = 1 - textureCoordinates[j].y;
+    }
 }
 
 -(void) draw {

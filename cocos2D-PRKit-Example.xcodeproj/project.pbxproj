@@ -18,6 +18,7 @@
 		C3339D6B134AD2F40074163A /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D68134AD2F40074163A /* PRFilledPolygon.m */; };
 		C3339D6C134AD2F40074163A /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D69134AD2F40074163A /* triangulate.cpp */; };
 		C3FCEE6D136120CD00559B90 /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */; };
+		E632785F161C69E2002B2DCD /* pattern1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E632785E161C69E2002B2DCD /* pattern1-hd.png */; };
 		E6482D4F15FD06BE00277F6B /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = E6482D4D15FD06BE00277F6B /* fps_images-ipadhd.png */; };
 		E6482D5015FD06BE00277F6B /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E6482D4E15FD06BE00277F6B /* fps_images-hd.png */; };
 		E68CC16A15FCF78E00AF1D44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E68CC16215FCF78E00AF1D44 /* AppDelegate.m */; };
@@ -53,6 +54,7 @@
 		C3FCEE691361202700559B90 /* PRTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTriangulator.h; sourceTree = "<group>"; };
 		C3FCEE6B136120CC00559B90 /* PRRatcliffTriangulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRatcliffTriangulator.h; sourceTree = "<group>"; };
 		C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PRRatcliffTriangulator.mm; sourceTree = "<group>"; };
+		E632785E161C69E2002B2DCD /* pattern1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pattern1-hd.png"; sourceTree = "<group>"; };
 		E6482D4D15FD06BE00277F6B /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		E6482D4E15FD06BE00277F6B /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-hd.png"; sourceTree = "<group>"; };
 		E68CC16115FCF78E00AF1D44 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "cocos2d-filledPolygon/AppDelegate.h"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		E68CC16E15FCF79B00AF1D44 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E632785E161C69E2002B2DCD /* pattern1-hd.png */,
 				E6482D4D15FD06BE00277F6B /* fps_images-ipadhd.png */,
 				E6482D4E15FD06BE00277F6B /* fps_images-hd.png */,
 				E68CC16F15FCF79B00AF1D44 /* Default.png */,
@@ -241,6 +244,7 @@
 				E68CC18415FCF79B00AF1D44 /* pattern1.png in Resources */,
 				E6482D4F15FD06BE00277F6B /* fps_images-ipadhd.png in Resources */,
 				E6482D5015FD06BE00277F6B /* fps_images-hd.png in Resources */,
+				E632785F161C69E2002B2DCD /* pattern1-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
