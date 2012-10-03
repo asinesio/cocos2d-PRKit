@@ -271,9 +271,9 @@
 			productReference = C3339BE6134AC7B00074163A /* cocos2D-PRKit-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E632786B161C6C5B002B2DCD /* prkit */ = {
+		E632786B161C6C5B002B2DCD /* PRKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6327877161C6C5B002B2DCD /* Build configuration list for PBXNativeTarget "prkit" */;
+			buildConfigurationList = E6327877161C6C5B002B2DCD /* Build configuration list for PBXNativeTarget "PRKit" */;
 			buildPhases = (
 				E6327891161C6DB3002B2DCD /* Headers */,
 				E6327868161C6C5B002B2DCD /* Sources */,
@@ -283,14 +283,14 @@
 			);
 			dependencies = (
 			);
-			name = prkit;
+			name = PRKit;
 			productName = prkit;
 			productReference = E632786C161C6C5B002B2DCD /* libprkit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		E632787C161C6C74002B2DCD /* prkit_script */ = {
+		E632787C161C6C74002B2DCD /* PRKit_script */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6327886161C6C74002B2DCD /* Build configuration list for PBXNativeTarget "prkit_script" */;
+			buildConfigurationList = E6327886161C6C74002B2DCD /* Build configuration list for PBXNativeTarget "PRKit_script" */;
 			buildPhases = (
 				E6327889161C6C86002B2DCD /* ShellScript */,
 			);
@@ -298,7 +298,7 @@
 			);
 			dependencies = (
 			);
-			name = prkit_script;
+			name = PRKit_script;
 			productName = prkit_script;
 			productReference = E632787D161C6C74002B2DCD /* libprkit_script.a */;
 			productType = "com.apple.product-type.library.static";
@@ -325,8 +325,8 @@
 			projectRoot = "";
 			targets = (
 				C3339BE5134AC7B00074163A /* cocos2D-PRKit-Example */,
-				E632786B161C6C5B002B2DCD /* prkit */,
-				E632787C161C6C74002B2DCD /* prkit_script */,
+				E632786B161C6C5B002B2DCD /* PRKit */,
+				E632787C161C6C74002B2DCD /* PRKit_script */,
 			);
 		};
 /* End PBXProject section */
@@ -366,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nTARGET=\"prkit\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\nSCRIPT_OPTIONS=\"MOVE_FILE\"\n#DEST_DIR=\"${PROJECT_DIR}/../SharedLibs\"\nDEST_DIR=~/Programming/SharedLibs\n\nmkdir -p ~/Programming\nmkdir -p ~/Programming/SharedLibs\n\nGIT_REVISION=$(git describe --tags `git rev-list --tags --max-count=1`)\nif [ ! -z $GIT_REVISION ]; then\nLIB_VERSION=\"-Tag-$GIT_REVISION\"\nelse\nLIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK_DEVICE=$(xcodebuild -showsdks | grep iphoneos | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\nLATEST_SDK_SIMULATOR=$(xcodebuild -showsdks | grep iphonesimulator | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\nLIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse\nLIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for simulator\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR build\n\n# Build library for device\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}-iphoneos/$LIBRARY_NAME\" -arch i386 \"${local_build_root}/${current_style}-iphonesimulator/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nrm -rf include\nmkdir -p include\ncd PRKit\ncp *.h ../include/\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\nrm -rf include\n\nif [ $SCRIPT_OPTIONS = \"MOVE_FILE\" ]; then\nBUILT_ZIP=\"${PROJECT_DIR}/$LIBRARY_ARCHIVE\"\nNEW_ZIP=\"$DEST_DIR/$LIBRARY_ARCHIVE\"\n\nif [ $current_style = \"Debug\" ]; then\nOLD_FOLDER=\"$DEST_DIR/$TARGET-${current_style}\"\nelse\nOLD_FOLDER=\"$DEST_DIR/$TARGET\"\nfi\nrm -rf $OLD_FOLDER\nmv $BUILT_ZIP \"$DEST_DIR/\"\nunzip -o $NEW_ZIP -d $OLD_FOLDER/\nrm -f $NEW_ZIP\nfi\n\ndone";
+			shellScript = "#!/bin/sh\n\nTARGET=\"PRKit\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\nSCRIPT_OPTIONS=\"MOVE_FILE\"\n#DEST_DIR=\"${PROJECT_DIR}/../SharedLibs\"\nDEST_DIR=~/Programming/SharedLibs\n\nmkdir -p ~/Programming\nmkdir -p ~/Programming/SharedLibs\n\nGIT_REVISION=$(git describe --tags `git rev-list --tags --max-count=1`)\nif [ ! -z $GIT_REVISION ]; then\nLIB_VERSION=\"-Tag-$GIT_REVISION\"\nelse\nLIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK_DEVICE=$(xcodebuild -showsdks | grep iphoneos | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\nLATEST_SDK_SIMULATOR=$(xcodebuild -showsdks | grep iphonesimulator | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\nLIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse\nLIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for simulator\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR build\n\n# Build library for device\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}-iphoneos/$LIBRARY_NAME\" -arch i386 \"${local_build_root}/${current_style}-iphonesimulator/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nrm -rf include\nmkdir -p include\ncd PRKit\ncp *.h ../include/\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\nrm -rf include\n\nif [ $SCRIPT_OPTIONS = \"MOVE_FILE\" ]; then\nBUILT_ZIP=\"${PROJECT_DIR}/$LIBRARY_ARCHIVE\"\nNEW_ZIP=\"$DEST_DIR/$LIBRARY_ARCHIVE\"\n\nif [ $current_style = \"Debug\" ]; then\nOLD_FOLDER=\"$DEST_DIR/$TARGET-${current_style}\"\nelse\nOLD_FOLDER=\"$DEST_DIR/$TARGET\"\nfi\nrm -rf $OLD_FOLDER\nmv $BUILT_ZIP \"$DEST_DIR/\"\nunzip -o $NEW_ZIP -d $OLD_FOLDER/\nrm -f $NEW_ZIP\nfi\n\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -626,7 +626,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E6327877161C6C5B002B2DCD /* Build configuration list for PBXNativeTarget "prkit" */ = {
+		E6327877161C6C5B002B2DCD /* Build configuration list for PBXNativeTarget "PRKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6327875161C6C5B002B2DCD /* Debug */,
@@ -634,7 +634,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		E6327886161C6C74002B2DCD /* Build configuration list for PBXNativeTarget "prkit_script" */ = {
+		E6327886161C6C74002B2DCD /* Build configuration list for PBXNativeTarget "PRKit_script" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6327887161C6C74002B2DCD /* Debug */,
