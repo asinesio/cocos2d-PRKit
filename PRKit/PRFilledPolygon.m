@@ -87,12 +87,16 @@
     
     NSArray *triangulatedPoints = [triangulator triangulateVertices:points];
     
-    areaTrianglePointCount = [triangulatedPoints count];
+    areaTrianglePointCount = (int)[triangulatedPoints count];
     areaTrianglePoints = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
     textureCoordinates = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
     
     for (int i = 0; i < areaTrianglePointCount; i++) {
+#ifdef __CC_PLATFORM_IOS
         areaTrianglePoints[i] = [[triangulatedPoints objectAtIndex:i] CGPointValue];
+#else
+        areaTrianglePoints[i] = [[triangulatedPoints objectAtIndex:i] pointValue];
+#endif
     }
     
     [self calculateTextureCoordinates];

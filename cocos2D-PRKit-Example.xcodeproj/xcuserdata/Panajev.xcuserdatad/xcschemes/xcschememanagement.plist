@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PRKitMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>PRKitMac_script.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>cocos2D-PRKit-Example - Debug.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -38,6 +48,16 @@
 			<true/>
 		</dict>
 		<key>E632787C161C6C74002B2DCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E692978D161F247F00DB1EAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E69297A2161F248C00DB1EAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
