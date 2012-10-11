@@ -19,7 +19,6 @@
 		C3339D6C134AD2F40074163A /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D69134AD2F40074163A /* triangulate.cpp */; };
 		C3FCEE6D136120CD00559B90 /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */; };
 		E632785F161C69E2002B2DCD /* pattern1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E632785E161C69E2002B2DCD /* pattern1-hd.png */; };
-		E632786D161C6C5B002B2DCD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BF6134AC7B00074163A /* Foundation.framework */; };
 		E632788E161C6D37002B2DCD /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D68134AD2F40074163A /* PRFilledPolygon.m */; };
 		E632788F161C6D37002B2DCD /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */; };
 		E6327890161C6D37002B2DCD /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D69134AD2F40074163A /* triangulate.cpp */; };
@@ -27,13 +26,6 @@
 		E6327893161C6DBD002B2DCD /* PRTriangulator.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FCEE691361202700559B90 /* PRTriangulator.h */; };
 		E6327894161C6DBD002B2DCD /* PRRatcliffTriangulator.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FCEE6B136120CC00559B90 /* PRRatcliffTriangulator.h */; };
 		E6327895161C6DBD002B2DCD /* triangulate.h in Headers */ = {isa = PBXBuildFile; fileRef = C3339D6A134AD2F40074163A /* triangulate.h */; };
-		E6327896161C6F7A002B2DCD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BF8134AC7B00074163A /* CoreGraphics.framework */; };
-		E632789A161C6F8D002B2DCD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6327899161C6F8D002B2DCD /* CoreFoundation.framework */; };
-		E632789B161C6FCB002B2DCD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BEC134AC7B00074163A /* OpenGLES.framework */; };
-		E632789C161C6FCB002B2DCD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BEA134AC7B00074163A /* QuartzCore.framework */; };
-		E632789D161C6FE3002B2DCD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BF4134AC7B00074163A /* UIKit.framework */; };
-		E632789E161C703F002B2DCD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BF2134AC7B00074163A /* AVFoundation.framework */; };
-		E632789F161C7054002B2DCD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3339BEE134AC7B00074163A /* OpenAL.framework */; };
 		E6482D4F15FD06BE00277F6B /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = E6482D4D15FD06BE00277F6B /* fps_images-ipadhd.png */; };
 		E6482D5015FD06BE00277F6B /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E6482D4E15FD06BE00277F6B /* fps_images-hd.png */; };
 		E68CC16A15FCF78E00AF1D44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E68CC16215FCF78E00AF1D44 /* AppDelegate.m */; };
@@ -56,17 +48,6 @@
 		E69297B4161F255A00DB1EAA /* PRFilledPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = C3339D68134AD2F40074163A /* PRFilledPolygon.m */; };
 		E69297B5161F255A00DB1EAA /* PRRatcliffTriangulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FCEE6C136120CD00559B90 /* PRRatcliffTriangulator.mm */; };
 		E69297B6161F255A00DB1EAA /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3339D69134AD2F40074163A /* triangulate.cpp */; };
-		E69297C2161F25AF00DB1EAA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297B7161F25AE00DB1EAA /* Cocoa.framework */; };
-		E69297C3161F25AF00DB1EAA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297B8161F25AE00DB1EAA /* CoreFoundation.framework */; };
-		E69297C4161F25AF00DB1EAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297B9161F25AE00DB1EAA /* CoreGraphics.framework */; };
-		E69297C5161F25AF00DB1EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297BA161F25AE00DB1EAA /* Foundation.framework */; };
-		E69297C6161F25AF00DB1EAA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297BB161F25AE00DB1EAA /* GLKit.framework */; };
-		E69297C7161F25AF00DB1EAA /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297BC161F25AE00DB1EAA /* GLUT.framework */; };
-		E69297C8161F25AF00DB1EAA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297BD161F25AE00DB1EAA /* libz.dylib */; };
-		E69297C9161F25AF00DB1EAA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297BE161F25AE00DB1EAA /* OpenAL.framework */; };
-		E69297CA161F25AF00DB1EAA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297BF161F25AE00DB1EAA /* OpenGL.framework */; };
-		E69297CB161F25AF00DB1EAA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297C0161F25AF00DB1EAA /* Quartz.framework */; };
-		E69297CC161F25AF00DB1EAA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69297C1161F25AF00DB1EAA /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,39 +127,6 @@
 				C3339BF5134AC7B00074163A /* UIKit.framework in Frameworks */,
 				C3339BF7134AC7B00074163A /* Foundation.framework in Frameworks */,
 				C3339BF9134AC7B00074163A /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E6327869161C6C5B002B2DCD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E632789F161C7054002B2DCD /* OpenAL.framework in Frameworks */,
-				E632789E161C703F002B2DCD /* AVFoundation.framework in Frameworks */,
-				E632789D161C6FE3002B2DCD /* UIKit.framework in Frameworks */,
-				E632789B161C6FCB002B2DCD /* OpenGLES.framework in Frameworks */,
-				E632789C161C6FCB002B2DCD /* QuartzCore.framework in Frameworks */,
-				E632789A161C6F8D002B2DCD /* CoreFoundation.framework in Frameworks */,
-				E6327896161C6F7A002B2DCD /* CoreGraphics.framework in Frameworks */,
-				E632786D161C6C5B002B2DCD /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E692978B161F247F00DB1EAA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E69297C2161F25AF00DB1EAA /* Cocoa.framework in Frameworks */,
-				E69297C3161F25AF00DB1EAA /* CoreFoundation.framework in Frameworks */,
-				E69297C4161F25AF00DB1EAA /* CoreGraphics.framework in Frameworks */,
-				E69297C5161F25AF00DB1EAA /* Foundation.framework in Frameworks */,
-				E69297C6161F25AF00DB1EAA /* GLKit.framework in Frameworks */,
-				E69297C7161F25AF00DB1EAA /* GLUT.framework in Frameworks */,
-				E69297C8161F25AF00DB1EAA /* libz.dylib in Frameworks */,
-				E69297C9161F25AF00DB1EAA /* OpenAL.framework in Frameworks */,
-				E69297CA161F25AF00DB1EAA /* OpenGL.framework in Frameworks */,
-				E69297CB161F25AF00DB1EAA /* Quartz.framework in Frameworks */,
-				E69297CC161F25AF00DB1EAA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +316,6 @@
 			buildPhases = (
 				E6327891161C6DB3002B2DCD /* Headers */,
 				E6327868161C6C5B002B2DCD /* Sources */,
-				E6327869161C6C5B002B2DCD /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -400,7 +347,6 @@
 			buildPhases = (
 				E692978C161F247F00DB1EAA /* Headers */,
 				E692978A161F247F00DB1EAA /* Sources */,
-				E692978B161F247F00DB1EAA /* Frameworks */,
 			);
 			buildRules = (
 			);
