@@ -42,7 +42,6 @@
 	
 	CGPoint *areaTrianglePoints;
 	CGPoint *textureCoordinates;
-    CCGLProgram * prog;
     
     id<PRTriangulator> triangulator;
 }

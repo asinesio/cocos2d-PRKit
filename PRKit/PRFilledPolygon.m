@@ -72,8 +72,7 @@
         [self setPoints:polygonPoints];
 		self.texture = fillTexture;
         
-        prog = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTexture];
-        
+        self.shaderProgram = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTexture];
 	}
 	
 	return self;
