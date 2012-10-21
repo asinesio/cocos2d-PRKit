@@ -11,6 +11,16 @@ This is licensed using the same license as cocos2d itself and provided with abso
 
 This code uses the excellent <a href="http://www.flipcode.com/archives/Efficient_Polygon_Triangulation.shtml">Triangulate C++ classes</a> written by <a href="mailto:jratcliff@verant.com">John W. Ratcliff</a>.
 
+Changes in this fork
+--------------------
+
+Cocos2D is not included in this project, but it is used as an external
+static library.
+Instructions on how to obtain it, build it, and install it can be found
+here:
+
+https://github.com/Panajev/CocosLib#howto-install
+
 Installation
 ------------
 Download the source and add the files under ''PRKit'' to your project:

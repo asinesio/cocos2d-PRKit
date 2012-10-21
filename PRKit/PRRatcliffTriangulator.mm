@@ -39,7 +39,11 @@
    
     Vector2dVector *inputPointsForTriangulation = new Vector2dVector;
     for (NSValue *value in vertices) {
+#ifdef __CC_PLATFORM_IOS
         CGPoint point = [value CGPointValue];
+#else
+        CGPoint point = [value pointValue];
+#endif
         inputPointsForTriangulation->push_back( Vector2d(point.x,point.y));
     }
     // Triangulate results
@@ -48,10 +52,14 @@
     Triangulate::Process(*inputPointsForTriangulation, triangulatedPoints);
     delete inputPointsForTriangulation;
     
-    int triangulatedPointCount = triangulatedPoints.size();
+    int triangulatedPointCount = (int)triangulatedPoints.size();
     NSMutableArray *triangulatedPointsArray = [NSMutableArray arrayWithCapacity:triangulatedPointCount];
     for (int i = 0; i < triangulatedPointCount; i++) {
+#ifdef __CC_PLATFORM_IOS
         NSValue *triangulatedPointValue = [NSValue valueWithCGPoint:CGPointMake(triangulatedPoints[i].GetX(), triangulatedPoints[i].GetY())];
+#else
+        NSValue *triangulatedPointValue = [NSValue valueWithPoint:CGPointMake(triangulatedPoints[i].GetX(), triangulatedPoints[i].GetY())];
+#endif
         [triangulatedPointsArray addObject:triangulatedPointValue];
     }
     return triangulatedPointsArray;

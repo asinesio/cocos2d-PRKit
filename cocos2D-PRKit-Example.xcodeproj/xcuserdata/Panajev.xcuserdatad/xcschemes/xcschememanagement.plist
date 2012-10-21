@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>PRKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>PRKitMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>PRKitMac_script.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>PRKit_script.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>cocos2D-PRKit-Example - Debug.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>cocos2D-PRKit-Example.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C3339BE5134AC7B00074163A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E632786B161C6C5B002B2DCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E632787C161C6C74002B2DCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E692978D161F247F00DB1EAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E69297A2161F248C00DB1EAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

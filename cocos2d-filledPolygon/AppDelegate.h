@@ -1,20 +1,28 @@
 //
 //  AppDelegate.h
-//  cocos2d-filledPolygon
+//  ArchiStar
 //
-//  Created by Andy Sinesio on 4/4/11.
-//  Copyright Precognitive Research, LLC 2011. All rights reserved.
+//  Created by Goffredo Marocchi on 7/10/12.
+//  Copyright IGGS 2012. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "cocos2d.h"
 
-@class RootViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
-	UIWindow			*window;
-	RootViewController	*viewController;
+@interface AppDelegate : NSObject <UIApplicationDelegate, CCDirectorDelegate>
+{
+	UIWindow *window_;
+	UINavigationController *navController_;
+	
+	CCDirectorIOS	*__weak director_;							// weak ref
+    
 }
 
-@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
+@property (readonly) UINavigationController *navController;
+@property (weak, readonly) CCDirectorIOS *director;
+
+@property (nonatomic, assign) BOOL levelLoaded;
 
 @end
