@@ -111,18 +111,19 @@
 }
 
 -(void) draw {
-    ccGLBindTexture2D( [self.texture name] );
+    CC_NODE_DRAW_SETUP();
+    
+    ccGLBindTexture2D( self.texture.name );
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     
+    ccGLBlendFunc( blendFunc.src, blendFunc.dst);
+    
     ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position | kCCVertexAttribFlag_TexCoords );
     
-    [prog use];
-    [prog setUniformForModelViewProjectionMatrix];
-    
-    glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, sizeof(CGPoint), areaTrianglePoints);
-    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, sizeof(CGPoint), textureCoordinates);
+    glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, 0, areaTrianglePoints);
+    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, 0, textureCoordinates);
     
     glDrawArrays(GL_TRIANGLES, 0, areaTrianglePointCount);
 }
