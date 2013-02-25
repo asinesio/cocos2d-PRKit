@@ -19,7 +19,7 @@ Release Notes
 * Restructured project into more sensible structure.
 
 ##### Version 0.2 (2013-02-13)
-* Support for cocos2d 2.0 [Panajev's](http://github.com/panajev)
+* Support for cocos2d 2.0 (thanks to [Panajev's](http://github.com/panajev) pull request)
 
 ##### Version 0.1 (2012-02-24)
 * Initial release for cocos2d 1.1.
