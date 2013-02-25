@@ -87,15 +87,17 @@
     NSArray *triangulatedPoints = [triangulator triangulateVertices:points];
     
     areaTrianglePointCount = (int)[triangulatedPoints count];
-    areaTrianglePoints = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
-    textureCoordinates = (CGPoint *) malloc(sizeof(CGPoint) * areaTrianglePointCount);
+    areaTrianglePoints = (ccVertex2F *) malloc(sizeof(ccVertex2F) * areaTrianglePointCount);
+    textureCoordinates = (ccVertex2F *) malloc(sizeof(ccVertex2F) * areaTrianglePointCount);
     
     for (int i = 0; i < areaTrianglePointCount; i++) {
+        
 #ifdef __CC_PLATFORM_IOS
-        areaTrianglePoints[i] = [[triangulatedPoints objectAtIndex:i] CGPointValue];
+        CGPoint vert = [[triangulatedPoints objectAtIndex:i] CGPointValue];
 #else
-        areaTrianglePoints[i] = [[triangulatedPoints objectAtIndex:i] pointValue];
+        CGPoint vert = [[triangulatedPoints objectAtIndex:i] pointValue];
 #endif
+        areaTrianglePoints[i] = (ccVertex2F) { vert.x, vert.y };
     }
     
     [self calculateTextureCoordinates];
@@ -104,7 +106,8 @@
 
 -(void) calculateTextureCoordinates {
     for (int j = 0; j < areaTrianglePointCount; j++) {
-        textureCoordinates[j] = ccpMult(areaTrianglePoints[j],1.0f/texture.pixelsWide*CC_CONTENT_SCALE_FACTOR());
+        GLfloat scale = 1.0f/texture.pixelsWide * CC_CONTENT_SCALE_FACTOR();
+        textureCoordinates[j] = (ccVertex2F) { areaTrianglePoints[j].x * scale, areaTrianglePoints[j].y * scale };
         textureCoordinates[j].y = 1 - textureCoordinates[j].y;
     }
 }
@@ -166,11 +169,11 @@
 }
 		 
 -(void) dealloc {
+    [super dealloc];
 	free(areaTrianglePoints);
 	free(textureCoordinates);
 	 texture = nil;
     triangulator = nil;
-
 }
 
 @end

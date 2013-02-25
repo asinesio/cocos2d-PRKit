@@ -32,6 +32,7 @@
 
 #import "PRRatcliffTriangulator.h"
 #import "triangulate.h"
+#import "cocos2d.h"
 
 @implementation PRRatcliffTriangulator
 

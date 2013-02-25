@@ -11,16 +11,6 @@ This is licensed using the same license as cocos2d itself and provided with abso
 
 This code uses the excellent <a href="http://www.flipcode.com/archives/Efficient_Polygon_Triangulation.shtml">Triangulate C++ classes</a> written by <a href="mailto:jratcliff@verant.com">John W. Ratcliff</a>.
 
-Changes in this fork
---------------------
-
-Cocos2D is not included in this project, but it is used as an external
-static library.
-Instructions on how to obtain it, build it, and install it can be found
-here:
-
-https://github.com/Panajev/CocosLib#howto-install
-
 Installation
 ------------
 Download the source and add the files under ''PRKit'' to your project:
@@ -31,6 +21,14 @@ Download the source and add the files under ''PRKit'' to your project:
 * PRRatcliffTriangulator.mm
 * triangulate.h
 * triangulate.cpp 
+
+Compatibility
+-------------
+Tested with cocos2d 2.0 for iOS.
+
+Usage
+-----
+Allen Tan wrote a great [tutorial on making a game with PRKit](http://www.raywenderlich.com/14302/how-to-make-a-game-like-fruit-ninja-with-box2d-and-cocos2d-part-1).  Note that the changes to PRKit described in the blog are not needed, since they've been merged into the master branch here. 
 
 Class Overview
 --------------
