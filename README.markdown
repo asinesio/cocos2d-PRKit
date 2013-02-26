@@ -41,7 +41,10 @@ Tested with cocos2d 2.0 for iOS and Mac OS X.
 
 Other Documentation
 -------------------
-Allen Tan wrote a great [tutorial on making a game with PRKit](http://www.raywenderlich.com/14302/how-to-make-a-game-like-fruit-ninja-with-box2d-and-cocos2d-part-1).  Note that the changes to PRKit described in the blog are not needed, since they've been merged into the master branch here. 
+Allen Tan wrote a great [tutorial on making a game with PRKit](http://www.raywenderlich.com/14302/how-to-make-a-game-like-fruit-ninja-with-box2d-and-cocos2d-part-1).  
+
+Note that the changes to PRKit described in the tutorial are not needed, since they've been merged into the code. 
+
 
 Class Overview
 --------------
